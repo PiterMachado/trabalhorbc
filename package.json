@@ -2,11 +2,11 @@
   "name": "trabalhorbc",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Piter Machado / Pedro Ferreira",
   "license": "ISC",
-  "description": ""
+  "description": "Sistema de recomendação de filmes baseado em Redes Bayesianas Causais para a disciplina de Inteligência Artificial"
 }
