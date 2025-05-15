@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Similaridade de Filmes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora de Similaridade de Filmes</h1>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Selecione um Filme</div>
+          <select id="movie-selector">
+            <option value="">Escolha um filme</option>
+          </select>
+
+          <div id="selected-movie-details" class="movie-details" style="display: none">
+            <h3 id="selected-movie-name"></h3>
+            <div class="movie-info" id="movie-info"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Pesos dos Atributos</div>
+
+          <div class="weight-control">
+            <div class="weight-header">
+              <label class="weight-label" for="rating-weight">Rating</label>
+              <span class="weight-value" id="rating-weight-value">1.2</span>
+            </div>
+            <input type="range" id="rating-weight" min="0" max="3" step="0.1" value="1.2" />
+          </div>
+
+          <div class="weight-control">
+            <div class="weight-header">
+              <label class="weight-label" for="genre-weight">Gênero</label>
+              <span class="weight-value" id="genre-weight-value">1.4</span>
+            </div>
+            <input type="range" id="genre-weight" min="0" max="3" step="0.1" value="1.4" />
+          </div>
+
+          <div class="weight-control">
+            <div class="weight-header">
+              <label class="weight-label" for="directors-weight">Diretores</label>
+              <span class="weight-value" id="directors-weight-value">0.5</span>
+            </div>
+            <input type="range" id="directors-weight" min="0" max="3" step="0.1" value="0.5" />
+          </div>
+
+          <div class="weight-control">
+            <div class="weight-header">
+              <label class="weight-label" for="casts-weight">Elenco</label>
+              <span class="weight-value" id="casts-weight-value">0.5</span>
+            </div>
+            <input type="range" id="casts-weight" min="0" max="3" step="0.1" value="0.5" />
+          </div>
+
+          <div class="weight-control">
+            <div class="weight-header">
+              <label class="weight-label" for="runtime-weight">Duração</label>
+              <span class="weight-value" id="runtime-weight-value">0.5</span>
+            </div>
+            <input type="range" id="runtime-weight" min="0" max="3" step="0.1" value="0.5" />
+          </div>
+
+          <button id="calculate-btn" class="calculate-btn">Calcular Similaridade</button>
+        </div>
+      </div>
+
+      <div id="similarity-results" class="card" style="display: none">
+        <div class="card-title">Filmes Similares a <span id="similarity-title-movie"></span></div>
+
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Buscar filme..." />
+        </div>
+
+        <div style="overflow-x: auto">
+          <table id="similarity-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Nome</th>
+                <th class="text-right">Rating</th>
+                <th class="text-right">Gênero</th>
+                <th class="text-right">Diretores</th>
+                <th class="text-right">Elenco</th>
+                <th class="text-right">Duração</th>
+                <th class="text-right">Total</th>
+              </tr>
+            </thead>
+            <tbody id="similarity-table-body"></tbody>
+          </table>
+        </div>
+
+        <div id="pagination" class="pagination" style="display: none">
+          <button id="prev-page" disabled>Anterior</button>
+          <span class="pagination-info" id="pagination-info">Página 1 de 1</span>
+          <button id="next-page">Próxima</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="global.js"></script>
+  </body>
+</html>
